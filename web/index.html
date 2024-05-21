@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>G&J - AI</title>
+    <link rel="icon" type="image/ico" href="logo.png" />
+</head>
+
+<body data-target=".navbar" data-offset="0">
+
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="importmap">
+
+</script>
+    <script  src="./main.js"></script>
+    <script type="module"  src="./theme.js"></script>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="navbar-brand-simbol" src="logo.png"
+                        style="margin-right: 10px;" width="70px" height="70px"><span
+                        class="navbar-brand-simbol"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" style="padding-top: 15px;">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a><i class="bi bi-robot"></i> G&J AI</a></li>
+                    <li><a><i class="bi bi-bar-chart"></i> Statistics</a></li>
+
+
+                    <li id="switchTheme">
+                        <nav>
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox" />
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
+                        </nav>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <br>
+
+    <div class="column" id="container" style=" border-radius: 20px;">
+            <iframe id="imgFrame" style="border-radius: 10px; border:0;" width="100%" height="650px"></iframe>
+    </div>
+
+    <div class="column2" style="text-align: center;">
+        <h3>Please Choose a AI Type</h3>
+
+        <select id="inputState" class="form-control">
+            <option selected>Select a AI Type</option>
+            <option >With Data Augmentation</option>
+            <option >Without Data Augmentation</option>
+            <option >VGG16</option>
+            <option >VGG19</option>
+          </select>
+       
+
+        <h3 style="padding-top: 20px;">Please Import a Photo</h3>
+
+
+        <input class="form-control" style="margin-top: 20px;width: 100%;" type="file" accept="image/png, image/jpeg" id="inputImage">
+        <button class="btn btn-info" style="margin-top: 20px;width: 100%;" onclick="uploadIMG()">Upload Photo</button>
+
+
+        <h3 style="padding-top: 20px;">Calculate </h3>
+        <button class="btn btn-info" style="width: 100%;" onclick="callAI()">Calculate With AI</button>
+
+
+    </div>
+
+    <br>
+    <br>
+    <footer>
+        <div class="linha">
+            <div class="col-md-6">
+                <h4><i style="font-size: 25px; margin-left: 5px;" class="bi-people"></i> G&J AI</h4>
+                <p><a style="font-size: small;">Who we are</a></p>
+                <p><a style="font-size: small;">Contacts</a></p>
+                <p><a style="font-size: small;">Help</a></p>
+
+            </div>
+            
+            <div class="col-md-6">
+                <h4><i style="font-size: 25px; margin-left: 5px;" class="bi-geo-alt"></i> Location</h4>
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.2318126954165!2d-8.823623587583393!3d39.734443396762984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd22735a4e067afb%3A0xcfaf619f4450fa76!2sPolit%C3%A9cnico%20de%20Leiria%20%7C%20ESTG%20-%20Escola%20Superior%20de%20Tecnologia%20e%20Gest%C3%A3o_Edif%C3%ADcio%20D!5e0!3m2!1spt-PT!2spt!4v1716301885554!5m2!1spt-PT!2spt" 
+                    width="75%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+             </div>
+        </div>
+        <br>
+        <div class="linha">
+
+            <!-- Conteúdo do rodapé -->
+            <h4 id="anoAtual"></h4>
+        </div>
+    </footer>
+</body>
+<button onclick="topFunction()" id="btnBackToTop" title="Voltar ao Início"><i
+        class="bi bi-arrow-up-circle-fill"></i></button>
+
+</html>
+
+
+<script>
+    //Função do botao back to top
+    // Get the button
+    let mybutton = document.getElementById("btnBackToTop");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
