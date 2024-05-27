@@ -1,6 +1,6 @@
 
 let model;
-
+var iteracoes = 0;
 
 async function loadModel() {
   try {
@@ -66,30 +66,65 @@ async function callAI() {
     var yValues = probabilitiesArray;
     var barColors = ["#92a8d1", "#034f84", "#f7cac9", "#f7786b", "#d5f4e6", "#80ced6", "#fefbd8", "#618685", "#f4a688", "#e0876a"];
 
+    if (iteracoes > 0) {
+      iteracoes += 1;
+      
+      var container = document.getElementById("container2");
+      container.innerHTML = `
+                <h3 id="h3myChart" style="text-align: center;"> 
+                    <i class="bi bi-bar-chart"></i> Statistics
+                </h3>
+                <canvas id="myChart" style="border-radius: 10px; border:0;" width="100%" height="50px"></canvas>
+            `;
+      
+      new Chart("myChart", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          legend: { display: true },
+          title: {
+            display: true,
+            text: "Class Probability"
+          }
+        }
+      });
+    }
+    else {
+      iteracoes += 1;
 
-    if (window.myChart instanceof Chart) {
-      window.myChart.destroy();
+      new Chart("myChart", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          legend: { display: true },
+          title: {
+            display: true,
+            text: "Class Probability"
+          }
+        }
+      });
     }
 
-    new Chart("myChart", {
-      type: "doughnut",
-      data: {
-        labels: xValues,
-        datasets: [{
-          backgroundColor: barColors,
-          data: yValues
-        }]
-      },
-      options: {
-        legend: { display: true },
-        title: {
-          display: true,
-          text: "Class Probability"
-        }
-      }
-    });
+    var elements = document.getElementsByClassName('chartjs-hidden-iframe');
+    // Itera sobre a coleção de elementos e define o estilo display para 'none'
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].remove();
+    }
 
-    document.getElementById('result').innerText = `Predicted class: ${predictedClass}`;
+    //alert(xValues[predictedClass])
+    document.getElementById('result').innerText = `Predicted class: ${xValues[predictedClass]}`;
     //alert(`Predicted class: ${predictedClass}`);
   } catch (error) {
     console.error('Error during prediction:', error);
