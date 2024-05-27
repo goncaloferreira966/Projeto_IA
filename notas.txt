@@ -1,0 +1,9 @@
+Otimizadores Usados:
+- Gradiante Descendente
+- RMSpropn
+- Adam (Pelo que pesquisei é a melhor escolha para CNN, é o mais popular atualmente)
+
+Por que Adam?
+Adaptação da Taxa de Aprendizado: Adam ajusta a taxa de aprendizado de cada parâmetro individualmente, tornando-o muito eficaz em situações onde a escala dos gradientes varia.
+Momento e Aceleração: Combina o momento (como o SGD com momento) e a adaptação de taxa de aprendizado (como o RMSprop), o que pode levar a uma convergência mais rápida.
+Robustez: É bastante robusto e tende a funcionar bem com uma ampla gama de arquiteturas e problemas diferentes.
