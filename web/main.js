@@ -2,16 +2,6 @@
 let model;
 var iteracoes = 0;
 
-async function loadModel() {
-  try {
-    model = await tf.loadLayersModel('../notebooks/models/tfjs_model/model.json')
-    //document.getElementById('result').innerText = 'Model loaded'
-  } catch (error) {
-    console.error('Error loading model:', error)
-    //alert('Error loading model')
-  }
-}
-
 function readImage(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -29,6 +19,24 @@ function readImage(file) {
 async function callAI() {
   document.getElementById('container1').hidden = true
   document.getElementById('container2').hidden = false
+
+  // Seleciona o elemento <select> pelo ID
+  var selectElement = document.getElementById('inputState');
+
+  // Obtém o valor selecionado
+  var selectedValue = selectElement.value;
+  //alert(selectedValue);
+
+  var modelPath = '../notebooks/models/' + selectedValue + '/model.json';
+
+
+  try {
+    model = await tf.loadLayersModel(modelPath)
+    //document.getElementById('result').innerText = 'Model loaded'
+  } catch (error) {
+    console.error('Error loading model:', error)
+    //alert('Error loading model')
+  }
 
   const input = document.getElementById('inputImage');
   if (input.files.length === 0) {
@@ -64,11 +72,11 @@ async function callAI() {
 
     var xValues = ["Airplane", "Automobile", "Bird", "Cat", "Deer", "Dog", "Frog", "Horse", "Ship", "Truck"];
     var yValues = probabilitiesArray;
-    var barColors = ["#92a8d1", "#034f84", "#f7cac9", "#f7786b", "#d5f4e6", "#80ced6", "#fefbd8", "#618685", "#f4a688", "#e0876a"];
+    var barColors = ["#92a8d1", "#034f84", "#008080", "#f7786b", "#FF69B4", "#C0C0C0", "#DC143C", "#618685", "#f4a688", "#e0876a"];
 
     if (iteracoes > 0) {
       iteracoes += 1;
-      
+
       var container = document.getElementById("container2");
       container.innerHTML = `
                 <h3 id="h3myChart" style="text-align: center;"> 
@@ -76,7 +84,7 @@ async function callAI() {
                 </h3>
                 <canvas id="myChart" style="border-radius: 10px; border:0;" width="100%" height="50px"></canvas>
             `;
-      
+
       new Chart("myChart", {
         type: "doughnut",
         data: {
@@ -124,6 +132,8 @@ async function callAI() {
     }
 
     //alert(xValues[predictedClass])
+    document.getElementById('result').hidden = false
+    document.getElementById("result").style.color = barColors[predictedClass];
     document.getElementById('result').innerText = `Predicted class: ${xValues[predictedClass]}`;
     //alert(`Predicted class: ${predictedClass}`);
   } catch (error) {
@@ -132,13 +142,13 @@ async function callAI() {
   }
 }
 
-loadModel();
-
 
 function uploadIMG() {
 
   document.getElementById('container1').hidden = false
   document.getElementById('container2').hidden = true
+  document.getElementById('result').hidden = true
+
 
   var input = document.getElementById("inputImage");
   var iframe = document.getElementById('imgFrame');
