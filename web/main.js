@@ -149,6 +149,7 @@ function uploadIMG() {
   document.getElementById('container2').hidden = true
   document.getElementById('result').hidden = true
 
+  var importImage = document.getElementById('importImage');
 
   var input = document.getElementById("inputImage");
   var iframe = document.getElementById('imgFrame');
@@ -158,6 +159,7 @@ function uploadIMG() {
     var reader = new FileReader();
     reader.onload = function (e) {
       iframe.setAttribute("src", e.target.result);
+      importImage.setAttribute("src", e.target.result);
     };
     reader.readAsDataURL(file);
   } else {
