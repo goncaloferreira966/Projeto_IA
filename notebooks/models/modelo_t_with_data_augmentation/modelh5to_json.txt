@@ -1,2 +1,0 @@
-tensorflowjs_converter --input_format keras projeto_2_32.h5 tfjs_model
-
