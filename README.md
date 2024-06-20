@@ -23,7 +23,7 @@ Para utilizar o nosso website, visto que não está publicado na web, é necess�
 
 Assim, apresentamos um exemplo da interface web que podem esperar:
 
-![GUI do website](../img/GUI.png "GUI do website")
+![GUI do website](img/GUI.png "GUI do website")
 
 Para gerir e trabalhar em grupo neste projeto, foi utilizado o software GitHub. O nosso repositório GitHub cumpre com toda a organização e logística que são essênciais para um projeto na nossa área. 
 
