@@ -35,7 +35,5 @@ Explicação dos objetivos de cada pasta do nosso Repositório (Para respetiva c
 ##### Pasta RESULTS: Contém os resultados dos treinos das nossas redes (Importante a sua consulta)
 ##### Pasta IMG: Contém imagens auxiliáres
 ##### Ficheiro README: Contém a apresentação do projeto e a distinção das pastas de treino/validação (dataset's)
-##### Ficheiro NOTAS: Contém notas que pretendemos guardas para consulta posterior (Apenas para partilhar informalção entre os membros do grupo)
-
 
 ### Project By Gonçalo Ferreira & José Delgado
