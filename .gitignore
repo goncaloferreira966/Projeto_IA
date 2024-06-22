@@ -1,2 +1,12 @@
 
+notebooks/models/features/train_features_dataset1.npy
+notebooks/models/features/train_features_dataset2.npy
+notebooks/models/features/train_features_dataset3.npy
+notebooks/models/features/train_features_dataset4.npy
+notebooks/models/features/val_features_dataset1.npy
+notebooks/models/features/val_features_dataset2.npy
+notebooks/models/features/val_features_dataset3.npy
+notebooks/models/features/val_features_dataset4.npy
 notebooks/models/ModelT_transferLearning_fineTuning_WithoutDataAumentation.h5
+notebooks/models/ModelT_transferLearning_featureExtraction_WithDataAumentation.h5
+notebooks/models/ModelT_transferLearning_featureExtraction_WithDataAumentation.h5
